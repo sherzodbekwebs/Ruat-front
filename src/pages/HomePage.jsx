@@ -298,7 +298,7 @@ export default function HomePage({ products, lang }) { // lang prop qo'shildi
       </section>
 
 
-      <section className="py-24 bg-slate-50/50">
+      <section className="py-24 bg-slate-50/50" id="news-section">
         <div className="max-w-[1500px] mx-auto px-6">
 
           {/* Sarlavha bloki */}

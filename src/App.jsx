@@ -14,18 +14,35 @@ import NewsDetailPage from './pages/NewsDetailPage.jsx'; // 1. Yangi sahifani im
 // API manzili
 const API_BASE_URL = 'https://ruatapi.uzautotrailer.uz/api';
 
+// --- BU YERDA O'ZGARTIRISH KIRITILDI ---
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
+
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-  }, [pathname]);
+    // Agar manzilda # belgisi bo'lmasa (masalan /contacts), tepaga chiqaradi
+    if (!hash) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    } else {
+      // Agar hash bo'lsa (masalan /#news-section), o'sha ID li joyga scroll qiladi
+      const id = hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        // Biroz kechikish bilan scroll qilish (sahifa yuklanishiga ulgurishi uchun)
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 0);
+      }
+    }
+  }, [pathname, hash]);
+
   return null;
 }
+// --- O'ZGARTIRISH TUGADI ---
 
 // Himoyalangan yo'nalish (Token borligini tekshiradi)
 const ProtectedRoute = ({ children, loading }) => {
   const token = sessionStorage.getItem('admin_token');
-  
+
   if (loading) return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-6">
       <div className="w-10 h-10 md:w-12 md:h-12 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
@@ -49,17 +66,17 @@ function AppContent({ products, loading, onLogin, onLogout, refreshProducts }) {
         <Routes>
           <Route path="/" element={<HomePage products={products} />} />
           <Route path="/product/:slug" element={<ProductPage products={products} />} />
-          
+
           {/* 2. Yangiliklar tafsiloti uchun dinamik route qo'shildi */}
           <Route path="/news/:id" element={<NewsDetailPage />} />
-          
-          <Route 
-            path="/admin" 
+
+          <Route
+            path="/admin"
             element={
               <ProtectedRoute loading={loading}>
                 <AdminPage products={products} onUpdate={refreshProducts} onLogout={onLogout} />
               </ProtectedRoute>
-            } 
+            }
           />
           <Route path="/login" element={<LoginPage onLogin={onLogin} />} />
           <Route path="/contacts" element={<ContactsPage />} />
@@ -105,12 +122,12 @@ export default function App() {
     <HelmetProvider>
       <BrowserRouter>
         <ScrollToTop />
-        <AppContent 
-          products={products} 
-          loading={loading} 
+        <AppContent
+          products={products}
+          loading={loading}
           onLogin={login}
           onLogout={logout}
-          refreshProducts={fetchProducts} 
+          refreshProducts={fetchProducts}
         />
       </BrowserRouter>
     </HelmetProvider>

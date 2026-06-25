@@ -101,7 +101,7 @@ export default function Footer() {
         {/* --- BOTTOM BAR --- */}
         <div className="pt-10 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6 text-[10px] font-black uppercase tracking-widest text-slate-400">
-            <p>© 2026 РУАВТО ТРЕЙЛЕР</p>
+            <p>© 2026 РуАуто ТРЕЙЛЕР</p>
             <span className="hidden md:block w-1 h-1 bg-slate-200 rounded-full"></span>
             <p>Все права защищены</p>
           </div>
