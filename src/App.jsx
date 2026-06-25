@@ -48,7 +48,7 @@ function AppContent({ products, loading, onLogin, onLogout, refreshProducts }) {
       <main className="flex-grow w-full">
         <Routes>
           <Route path="/" element={<HomePage products={products} />} />
-          <Route path="/product/:id" element={<ProductPage products={products} />} />
+          <Route path="/product/:slug" element={<ProductPage products={products} />} />
           
           {/* 2. Yangiliklar tafsiloti uchun dinamik route qo'shildi */}
           <Route path="/news/:id" element={<NewsDetailPage />} />

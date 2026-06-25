@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, Trash2, Edit, X, Camera, Upload, Save, AlertCircle, ArrowLeft } from 'lucide-react';
+import { Plus, Trash2, Edit, X, Camera, Upload, Save, AlertCircle, ArrowLeft, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // --- Ixcham UI Komponentlar ---
@@ -36,10 +36,22 @@ export default function AdminProducts({ products, api, onUpdate }) {
   const [deleteModal, setDeleteModal] = useState({ show: false, id: null });
 
   const initialForm = {
-    name: '', category: '', brand: '', price: '', status: true, inStock: true, sequence: '0',
-    image: '', banner: '', gallery: [], description: '',
+    name: '', 
+    slug: '', // SEO uchun manzil
+    category: '', 
+    brand: '', 
+    price: '', 
+    status: true, 
+    inStock: true, 
+    sequence: '0',
+    image: '', 
+    banner: '', 
+    gallery: [], 
+    description: '',
     specifications: [{ id: Date.now(), key: '', val: '' }],
-    axleSpecs: [], characteristicSpecs: [], equipment: []
+    axleSpecs: [], 
+    characteristicSpecs: [], 
+    equipment: []
   };
 
   const [formData, setFormData] = useState(initialForm);
@@ -70,6 +82,7 @@ export default function AdminProducts({ products, api, onUpdate }) {
     const preparedData = {
       ...initialForm,
       ...prod,
+      slug: prod.slug || '', // Mavjud slugni yuklash
       inStock: prod.in_stock !== undefined ? prod.in_stock : (prod.inStock !== undefined ? prod.inStock : true),
       specifications: Array.isArray(prod.specifications) ? prod.specifications : [],
       axleSpecs: Array.isArray(prod.axle_specs || prod.axleSpecs) ? (prod.axle_specs || prod.axleSpecs) : [],
@@ -84,8 +97,8 @@ export default function AdminProducts({ products, api, onUpdate }) {
 
   const handleSubmit = async (e) => {
     if (e) e.preventDefault();
-    if (!formData.name || !formData.price || !formData.image) {
-      alert("Заполните название, цену и добавьте фото!");
+    if (!formData.name || !formData.price || !formData.image || !formData.slug) {
+      alert("Заполните название, цену, SLUG и добавьте фото!");
       return;
     }
     setIsLoading(true);
@@ -145,9 +158,25 @@ export default function AdminProducts({ products, api, onUpdate }) {
 
             <div className="lg:col-span-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               <Input label="Наименование" value={formData.name} onChange={v => setFormData(prev => ({...prev, name: v}))} />
+              
+              {/* SLUG INPUTI QO'SHILDI */}
+              <div className="space-y-1">
+                <label className="text-[11px] font-bold text-blue-600 tracking-tight ml-1 flex items-center gap-1">
+                  <Globe size={10} /> SEO Manzil (Slug)
+                </label>
+                <input 
+                  required
+                  type="text" 
+                  placeholder="podkatnaya-telezhka" 
+                  value={formData.slug} 
+                  onChange={(e) => setFormData(prev => ({...prev, slug: e.target.value.toLowerCase().replace(/\s+/g, '-')}))} 
+                  className="w-full bg-blue-50/30 border border-blue-100 rounded-lg py-2.5 px-4 text-sm font-bold text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 transition-all" 
+                />
+              </div>
+
               <Input label="Цена" value={formData.price} onChange={v => setFormData(prev => ({...prev, price: v}))} />
               <Input label="Категория" value={formData.category} onChange={v => setFormData(prev => ({...prev, category: v}))} />
-              <Input label="Бренд" value={formData.brand} onChange={v => setFormData(prev => ({...prev, brand: v}))} />
+              <Input label="Бреnd" value={formData.brand} onChange={v => setFormData(prev => ({...prev, brand: v}))} />
               <Input label="Приоритет (№)" type="number" value={formData.sequence} onChange={v => setFormData(prev => ({...prev, sequence: v}))} />
               <div className="flex items-end gap-2 pb-1">
                 <Switch enabled={formData.status} onChange={v => setFormData(prev => ({...prev, status: v}))} label="Активен" />
