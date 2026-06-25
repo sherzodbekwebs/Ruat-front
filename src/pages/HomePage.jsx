@@ -182,15 +182,7 @@ export default function HomePage({ products, lang }) { // lang prop qo'shildi
               Каталог <span className="text-blue-600">техники</span>
             </h2>
           </div>
-          <Link
-            to="/contacts"
-            className="group flex items-center gap-3 bg-slate-50 hover:bg-slate-900 px-5 py-2.5 rounded-xl transition-all duration-300"
-          >
-            <span className="text-[10px] font-black text-slate-600 group-hover:text-white tracking-widest uppercase transition-colors">
-              Смотреть все
-            </span>
-            <ChevronRight size={14} className="text-slate-400 group-hover:text-white group-hover:translate-x-1 transition-all" />
-          </Link>
+
         </div>
 
         {/* Kartalar setkasi */}
@@ -312,9 +304,7 @@ export default function HomePage({ products, lang }) { // lang prop qo'shildi
                 Новости <span className="text-blue-600">компании</span>
               </h2>
             </div>
-            <Link to="/news" className="text-[11px] font-black text-slate-400 hover:text-blue-600 transition-all tracking-widest uppercase flex items-center gap-2 group">
-              Все публикации <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+
           </div>
 
           {newsLoading ? (
