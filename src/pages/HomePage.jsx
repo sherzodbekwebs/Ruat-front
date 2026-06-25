@@ -187,49 +187,98 @@ export default function HomePage({ products, lang }) {
       </section>
 
       {/* --- CONSULTATION (Bo'shliqlar olib tashlangan) --- */}
-      <section className="py-10 px-6">
-        <div className="max-w-[1500px] mx-auto bg-slate-900 rounded-[2rem] p-8 md:p-12 relative overflow-hidden text-center text-white">
-          <div className="relative z-10 max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-blue-600 px-3 py-1 rounded-full mb-4">
-              <MessageSquare size={12} />
-              <span className="text-[9px] font-black uppercase tracking-widest">Консультация</span>
-            </div>
-            <h2 className="text-2xl md:text-4xl font-black mb-6 uppercase leading-tight">
-              Нужна помощь в выборе техники?
-            </h2>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link to="/contacts" className="w-full sm:w-auto bg-white text-slate-900 px-8 py-4 rounded-xl font-black text-[11px] uppercase hover:bg-blue-600 hover:text-white transition-all">
-                Связаться с нами
-              </Link>
-              <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">Ответ в течение 15 минут</p>
-            </div>
+<section className="py-12 px-6">
+  <div className="max-w-[1500px] mx-auto bg-white rounded-[2.5rem] p-8 md:p-16 relative overflow-hidden text-center border border-slate-100 shadow-[0_20px_50px_rgba(0,0,0,0.04)]">
+    
+    {/* Orqa fondagi nafis dekorativ elementlar */}
+    <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full -translate-y-16 translate-x-16 blur-3xl opacity-50" />
+    <div className="absolute bottom-0 left-0 w-32 h-32 bg-slate-50 rounded-full translate-y-16 -translate-x-16 blur-3xl opacity-50" />
+
+    <div className="relative z-10 max-w-2xl mx-auto">
+      {/* Badge - Och ko'k rangda */}
+      <div className="inline-flex items-center gap-2 bg-blue-50 px-4 py-1.5 rounded-full mb-6 border border-blue-100">
+        <MessageSquare size={14} className="text-blue-600" />
+        <span className="text-[10px] font-black uppercase tracking-[0.15em] text-blue-700">Консультация</span>
+      </div>
+
+      {/* Sarlavha - To'q rangda */}
+      <h2 className="text-2xl md:text-4xl font-black mb-6 uppercase leading-tight text-slate-900 tracking-tighter">
+        Нужна помощь <br className="hidden md:block" />
+        <span className="text-blue-600">в выборе техники?</span>
+      </h2>
+
+      {/* Tugmalar bloki */}
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+        <Link 
+          to="/contacts" 
+          className="w-full sm:w-auto bg-slate-900 text-white px-10 py-5 rounded-2xl font-black text-[11px] uppercase tracking-widest hover:bg-blue-600 transition-all shadow-xl shadow-slate-200 active:scale-95"
+        >
+          Связаться с нами
+        </Link>
+        
+        <div className="flex items-center gap-2.5 text-left">
+          <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+          <div>
+            <p className="text-slate-900 font-black text-[10px] uppercase leading-none mb-1">Ответ за 15 минут</p>
+            <p className="text-slate-400 text-[9px] font-bold uppercase tracking-widest leading-none">Бесплатная помощь</p>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* --- NEWS --- */}
-      <section className="py-16 lg:py-24 bg-slate-50/50">
-        <div className="max-w-[1500px] mx-auto px-6">
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter">Новости <span className="text-blue-600">компании</span></h2>
-          </div>
-          {newsLoading ? <Loader2 className="mx-auto animate-spin text-blue-600" /> : (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {news.map((item) => (
-                <div key={item.id} className="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-xl transition-all">
-                  <Link to={`/news/${item.id}`} className="block aspect-video overflow-hidden">
-                    <img src={item.image} alt={item.title_ru} className="w-full h-full object-cover" />
-                  </Link>
-                  <div className="p-6">
-                    <h3 className="font-black text-slate-900 uppercase mb-3 line-clamp-2">{item.title_ru}</h3>
-                    <Link to={`/news/${item.id}`} className="text-blue-600 text-[10px] font-black uppercase tracking-widest inline-flex items-center gap-2">Читать далее <ArrowRight size={14} /></Link>
-                  </div>
-                </div>
-              ))}
+<section className="py-16 lg:py-24 bg-slate-50/50" id="news-section">
+  <div className="max-w-[1500px] mx-auto px-6">
+    <div className="mb-12">
+      <h2 className="text-3xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter">
+        Новости <span className="text-blue-600">компании</span>
+      </h2>
+    </div>
+    
+    {newsLoading ? (
+      <Loader2 className="mx-auto animate-spin text-blue-600" size={32} />
+    ) : (
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {news.map((item) => (
+          <div key={item.id} className="group bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+            {/* Rasm qismi */}
+            <Link to={`/news/${item.id}`} className="block aspect-video overflow-hidden">
+              <img 
+                src={item.image} 
+                alt={item.title_ru} 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+              />
+            </Link>
+
+            {/* Matn qismi */}
+            <div className="p-6 flex flex-col flex-grow">
+              <h3 className="font-black text-slate-900 uppercase mb-3 line-clamp-2 text-sm md:text-base leading-tight group-hover:text-blue-600 transition-colors">
+                {item.title_ru}
+              </h3>
+              
+              {/* Qisqacha tavsif (Content) */}
+              <p className="text-slate-500 text-xs md:text-sm leading-relaxed mb-6 line-clamp-3 font-medium">
+                {item.content_ru}
+              </p>
+
+              {/* Link - Pastga yopishgan holatda */}
+              <div className="mt-auto pt-4 border-t border-slate-50">
+                <Link 
+                  to={`/news/${item.id}`} 
+                  className="text-blue-600 text-[10px] font-black uppercase tracking-widest inline-flex items-center gap-2 hover:gap-3 transition-all"
+                >
+                  Читать далее <ArrowRight size={14} />
+                </Link>
+              </div>
             </div>
-          )}
-        </div>
-      </section>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</section>
     </div>
   );
 }
