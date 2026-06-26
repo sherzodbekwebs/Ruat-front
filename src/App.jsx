@@ -70,7 +70,7 @@ function AppContent({ products, loading, onLogin, onLogout, refreshProducts }) {
 
           {/* 2. Yangiliklar tafsiloti uchun dinamik route qo'shildi */}
           <Route path="/news/:id" element={<NewsDetailPage />} />
-          <Route path="/leadership" element={<LeadershipPage />} />
+          {/* <Route path="/leadership" element={<LeadershipPage />} /> */}
 
           <Route
             path="/admin"
