@@ -20,6 +20,7 @@ export default function Header() {
 
   const navLinks = [
     { name: 'Каталог', path: '/' },
+    { name: 'Руководитель', path: '/leadership' },
     { name: 'Контакты', path: '/contacts' }
   ];
 
@@ -81,13 +82,9 @@ export default function Header() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
                 </span>
-                <span className="text-[8px] font-bold text-slate-500 tracking-widest uppercase">Отдел продаж</span>
+                <span className="text-[8px] font-bold text-slate-500 tracking-widest uppercase">Приёмная</span>
               </div>
             </div>
-
-            {/* <a href="tel:+74924427007" className="w-10 h-10 md:w-12 md:h-12 bg-green-500 text-white rounded-xl flex items-center justify-center  transition-all active:scale-90 shadow-lg">
-              <Phone size={16} />
-            </a> */}
           </div>
 
           {/* CTA Button (Tablet va Desktop) */}

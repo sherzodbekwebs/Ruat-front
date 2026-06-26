@@ -65,7 +65,7 @@ export default function Footer() {
                   <Phone size={18} />
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold text-slate-400 block uppercase tracking-widest leading-none mb-1">Продажи</span>
+                  <span className="text-[10px] font-bold text-slate-400 block uppercase tracking-widest leading-none mb-1">Приёмная</span>
                   <span className="text-base font-black tracking-tight text-slate-900">+7 (492) 442-70-07</span>
                 </div>
               </a>
@@ -74,7 +74,7 @@ export default function Footer() {
                   <Mail size={18} />
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold text-slate-400 block uppercase tracking-widest leading-none mb-1">Почта</span>
+                  <span className="text-[10px] font-bold text-slate-400 block uppercase tracking-widest leading-none mb-1">Электронная почта</span>
                   <span className="text-base font-black tracking-tight text-slate-900">info@ruautotrailer.ru</span>
                 </div>
               </a>
@@ -89,9 +89,9 @@ export default function Footer() {
                 <MapPin size={18} />
               </div>
               <p className="text-sm text-slate-600 font-bold leading-relaxed tracking-tight">
-                601446, Владимирская обл., <br />
+                Владимирская обл., <br />
                 г. Вязники, ул. Железнодорожная, <br />
-                д. 13, пом. 414
+                д. 13
               </p>
             </div>
           </div>

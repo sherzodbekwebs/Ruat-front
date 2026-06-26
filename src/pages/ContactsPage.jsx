@@ -26,8 +26,8 @@ export default function ContactsPage() {
 
   return (
     <div className="w-full bg-[#fcfdfe] min-h-screen pb-16 pt-24 md:pt-36">
-      <SEO 
-        title="Контакты | RuAuto Trailer" 
+      <SEO
+        title="Контакты | RuAuto Trailer"
         description="Свяжитесь с отделом продаж RuAuto Trailer. Наш завод находится в г. Вязники. Телефон: +7 (492) 442-70-07."
       />
 
@@ -46,7 +46,7 @@ export default function ContactsPage() {
             </span>
             <span className="h-[2px] w-6 md:w-12 bg-blue-600"></span>
           </div>
-          <h1 className="text-3xl md:text-7xl font-black tracking-tighter text-slate-900 leading-tight uppercase">
+          <h1 className="text-3xl md:text-5xl font-black tracking-tighter text-slate-900 leading-tight uppercase">
             Наши <span className="text-blue-600">контакты</span>
           </h1>
           <p className="mt-4 text-slate-500 font-medium max-w-xl mx-auto text-sm md:text-base italic">
@@ -63,7 +63,7 @@ export default function ContactsPage() {
               <div className="w-11 h-11 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-5">
                 <Phone size={20} />
               </div>
-              <h3 className="text-[9px] font-black tracking-widest text-slate-400 mb-1 uppercase">Отдел продаж</h3>
+              <h3 className="text-[9px] font-black tracking-widest text-slate-400 mb-1 uppercase">Приёмная</h3>
               <a href="tel:+74924427007" className="text-xl md:text-2xl font-black text-slate-900 hover:text-blue-600 transition-colors tracking-tight">
                 +7 (492) 442-70-07
               </a>
@@ -74,7 +74,7 @@ export default function ContactsPage() {
               <div className="w-11 h-11 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-5">
                 <Mail size={20} />
               </div>
-              <h3 className="text-[9px] font-black tracking-widest text-slate-400 mb-1 uppercase">E-mail почта</h3>
+              <h3 className="text-[9px] font-black tracking-widest text-slate-400 mb-1 uppercase">Электронная почта</h3>
               <a href="mailto:info@ruautotrailer.ru" className="text-lg md:text-xl font-black text-slate-900 hover:text-blue-600 transition-colors tracking-tight break-all">
                 info@ruautotrailer.ru
               </a>
@@ -87,7 +87,7 @@ export default function ContactsPage() {
               </div>
               <h3 className="text-[9px] font-black tracking-widest text-slate-400 mb-1 uppercase">Адрес завода</h3>
               <p className="text-sm font-bold text-slate-900 leading-relaxed tracking-tight">
-                601446, Владимирская область, г. Вязники, ул. Железнодорожная, д. 13
+                Владимирская область, г. Вязники, ул. Железнодорожная, д. 13
               </p>
             </div>
 
@@ -103,10 +103,6 @@ export default function ContactsPage() {
                     <span className="text-[10px] font-bold text-slate-400 uppercase">Пн - Пт</span>
                     <span className="text-xs font-black uppercase tracking-widest">9:00 - 18:00</span>
                   </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-[10px] font-bold text-slate-400 uppercase">Суббота</span>
-                    <span className="text-xs font-black text-blue-400 uppercase tracking-widest">10:00 - 15:00</span>
-                  </div>
                 </div>
               </div>
               <Clock className="absolute -right-4 -bottom-4 text-white/5" size={100} />
@@ -116,7 +112,7 @@ export default function ContactsPage() {
           {/* --- RIGHT SIDE: CONTACT FORM --- */}
           <div className="lg:col-span-8">
             <div className="bg-white border border-slate-100 rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.02)]">
-              <h2 className="text-2xl md:text-3xl font-black tracking-tight text-slate-900 mb-8 uppercase">
+              <h2 className="text-2xl md:text-2xl font-black tracking-tight text-slate-900 mb-8 uppercase">
                 Оставить <span className="text-blue-600">запрос</span>
               </h2>
 
@@ -194,15 +190,15 @@ export default function ContactsPage() {
         {/* --- MAP --- */}
         <div className="mt-10 md:mt-16">
           <div className="bg-white p-1 rounded-3xl md:rounded-[2.5rem] border border-slate-100 shadow-sm h-[350px] md:h-[500px] overflow-hidden">
-             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2217.6588866484085!2d42.11796726850893!3d56.232129454557686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x414e7f7b00000001%3A0x6ac8c7510adb593a!2z0J_QkNCeINCe0KHQktCQ0KA!5e0!3m2!1sru!2s!4v1782197012447!5m2!1sru!2s"
-                width="100%"
-                height="100%"
-                style={{ border: 0, borderRadius: '1.4rem' }}
-                allowFullScreen=""
-                loading="lazy"
-                title="RuAuto TRAILER Location"
-              ></iframe>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2217.6588866484085!2d42.11796726850893!3d56.232129454557686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x414e7f7b00000001%3A0x6ac8c7510adb593a!2z0J_QkNCeINCe0KHQktCQ0KA!5e0!3m2!1sru!2s!4v1782197012447!5m2!1sru!2s"
+              width="100%"
+              height="100%"
+              style={{ border: 0, borderRadius: '1.4rem' }}
+              allowFullScreen=""
+              loading="lazy"
+              title="RuAuto TRAILER Location"
+            ></iframe>
           </div>
         </div>
       </div>

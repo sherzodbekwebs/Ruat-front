@@ -9,7 +9,8 @@ import ProductPage from './pages/ProductPage.jsx';
 import AdminPage from './pages/AdminPage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import ContactsPage from './pages/ContactsPage.jsx';
-import NewsDetailPage from './pages/NewsDetailPage.jsx'; // 1. Yangi sahifani import qildik
+import NewsDetailPage from './pages/NewsDetailPage.jsx'; 
+import LeadershipPage from './pages/LeadershipPage';
 
 // API manzili
 const API_BASE_URL = 'https://ruatapi.uzautotrailer.uz/api';
@@ -69,6 +70,7 @@ function AppContent({ products, loading, onLogin, onLogout, refreshProducts }) {
 
           {/* 2. Yangiliklar tafsiloti uchun dinamik route qo'shildi */}
           <Route path="/news/:id" element={<NewsDetailPage />} />
+          <Route path="/leadership" element={<LeadershipPage />} />
 
           <Route
             path="/admin"
@@ -79,6 +81,7 @@ function AppContent({ products, loading, onLogin, onLogout, refreshProducts }) {
             }
           />
           <Route path="/login" element={<LoginPage onLogin={onLogin} />} />
+          
           <Route path="/contacts" element={<ContactsPage />} />
         </Routes>
       </main>
