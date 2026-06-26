@@ -27,12 +27,12 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 h-20 md:h-24 bg-white/80 backdrop-blur-md border-b border-slate-100 z-[100] flex items-center transition-all duration-300">
       <div className="max-w-[1500px] mx-auto w-full px-4 md:px-10 flex items-center justify-between">
-
+   
         {/* --- LOGO --- */}
         <div className="flex items-center gap-4 lg:gap-14">
           <Link to="/" className="relative group flex items-center gap-3 active:scale-95 transition-transform">
               <img
-                src="/ruat_logo.png"
+                src="/ruat_logo.png"   
                 alt="РУАВТО ТРЕЙЛЕР"
                 className="h-11 md:h-11 w-auto object-contain"
               />
