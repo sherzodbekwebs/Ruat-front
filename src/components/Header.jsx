@@ -20,7 +20,7 @@ export default function Header() {
 
   const navLinks = [
     { name: 'Каталог', path: '/' },
-    { name: 'Руководитель', path: '/leadership' },
+    // { name: 'Руководитель', path: '/leadership' },
     { name: 'Контакты', path: '/contacts' }
   ];
 
