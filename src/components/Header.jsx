@@ -60,16 +60,7 @@ export default function Header() {
         {/* --- O'NG TOMON --- */}
         <div className="flex items-center gap-2 md:gap-8">
 
-          {/* Manzil (Faqat Desktop) */}
-          <div className="hidden xl:flex items-center gap-3 pr-8 border-r border-slate-100">
-            <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-blue-600">
-              <MapPin size={18} />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[9px] font-black text-slate-400 tracking-widest uppercase leading-tight">Завод в РФ</span>
-              <span className="text-xs font-black text-slate-900 tracking-tight">г. Вязники</span>
-            </div>
-          </div>
+    
 
           {/* Telefon va Qo'ng'iroq (Hamma uchun) */}
           <div className="flex items-center gap-2 md:gap-4">
