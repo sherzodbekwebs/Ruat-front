@@ -39,7 +39,7 @@ export default function HomePage({ products }) {
   }, [products]);
 
   const [currentSlide, setCurrentSlide] = useState(0);
-  
+
   const heroImages = useMemo(() => {
     return sortedProducts.length > 0 ? sortedProducts.slice(0, 5) : [];
   }, [sortedProducts]);
@@ -56,11 +56,10 @@ export default function HomePage({ products }) {
   return (
     <div className="bg-white min-h-screen font-sans selection:bg-blue-600 selection:text-white">
       <SEO
-        title="RuAuto TRAILER | Продажа полуприцепов в России"
-        description="RuAuto TRAILER - официальный производитель полуприцепной техники Vollkraft."
-        keywords="полуприцепы, Vollkraft, RuAuto TRAILER"
+        title="RuAuto TRAILER | РУАВТО ТРЕЙЛЕР | РУ АВТО ТРЕЙЛЕР"
+        description="RuAuto Trailer (РУАВТО ТРЕЙЛЕР) — официальный производитель полуприцепной техники Vollkraft в России. РУ АВТО ТРЕЙЛЕР предлагает широкий ассортимент шторных и бортовых полуприцепов."
+        keywords="ruauto trailer, руавто трейлер, ру авто трейлер, полуприцепы воллкрафт, vollkraft trailer"
       />
-
       {/* --- HERO SECTION --- */}
       <section className="relative min-h-fit lg:min-h-[90vh] flex items-center pt-24 lg:pt-32 pb-10 lg:pb-0 overflow-hidden bg-[#fcfdfe]">
         <div className="absolute top-0 right-0 w-full lg:w-[45%] h-full bg-slate-100/50 lg:skew-x-[-12deg] lg:translate-x-24 -z-10 border-l border-slate-200/50" />
@@ -226,25 +225,25 @@ export default function HomePage({ products }) {
               Новости <span className="text-blue-600">компании</span>
             </h2>
           </div>
-          
+
           {newsLoading ? (
             <div className="flex justify-center py-12">
-               <Loader2 className="animate-spin text-blue-600" size={32} />
+              <Loader2 className="animate-spin text-blue-600" size={32} />
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {news.map((item) => (
                 <div key={item.id} className="group bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                   {/* Rasm qismi (onMouseEnter qo'shildi) */}
-                  <Link 
-                    to={`/news/${item.id}`} 
+                  <Link
+                    to={`/news/${item.id}`}
                     onMouseEnter={() => handlePrefetchNews(item.id)} // Prefetch boshlandi
                     className="block aspect-video overflow-hidden"
                   >
-                    <img 
-                      src={item.image} 
-                      alt={item.title_ru} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                    <img
+                      src={item.image}
+                      alt={item.title_ru}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </Link>
 
@@ -257,8 +256,8 @@ export default function HomePage({ products }) {
                     </p>
                     <div className="mt-auto pt-4 border-t border-slate-50">
                       {/* Tugmaga ham onMouseEnter qo'shildi */}
-                      <Link 
-                        to={`/news/${item.id}`} 
+                      <Link
+                        to={`/news/${item.id}`}
                         onMouseEnter={() => handlePrefetchNews(item.id)} // Prefetch boshlandi
                         className="text-blue-600 text-[10px] font-black uppercase tracking-widest inline-flex items-center gap-2 hover:gap-3 transition-all"
                       >
