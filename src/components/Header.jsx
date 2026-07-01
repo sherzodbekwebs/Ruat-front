@@ -16,8 +16,10 @@ export default function Header() {
     else document.body.style.overflow = 'unset';
   }, [isMenuOpen]);
 
+  // Navigatsiya linklari - "Новости" qo'shildi
   const navLinks = [
     { name: 'Каталог', path: '/' },
+    { name: 'Новости', path: '/news' },
     { name: 'Контакты', path: '/contacts' }
   ];
 
@@ -28,17 +30,14 @@ export default function Header() {
         {/* --- LOGO BO'LIMI --- */}
         <div className="flex items-center gap-6 lg:gap-16">
           <Link to="/" className="flex items-center gap-5 md:gap-8 active:scale-95 transition-transform">
-            {/* RuAuto Logo - Balandligini biroz oshirdik */}
             <img
               src="/ruat_logo.png"
               alt="РУАВТО ТРЕЙЛЕР"
               className="h-10 md:h-13 w-auto object-contain"
             />
 
-            {/* Vertikal chiziq - balandligini logolarga mosladik */}
             <div className="hidden sm:block h-10 w-[1.5px] bg-slate-200"></div>
 
-            {/* Vollkraft Logo - Balandligini md:h-10 qildik (avval h-7 edi) */}
             <img
               src="/vol_logo.png"
               alt="Vollkraft"

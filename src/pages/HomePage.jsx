@@ -58,7 +58,7 @@ export default function HomePage({ products }) {
       <SEO
         title="RuAuto TRAILER | РУАВТО ТРЕЙЛЕР | РУ АВТО ТРЕЙЛЕР"
         description="RuAuto Trailer (РУАВТО ТРЕЙЛЕР) — официальный производитель полуприцепной техники Vollkraft в России. РУ АВТО ТРЕЙЛЕР предлагает широкий ассортимент шторных и бортовых полуприцепов."
-        keywords="ruauto trailer, руавто трейлер, ру авто трейлер, полуприцепы воллкрафт, vollkraft trailer"
+        keywords="ruauto trailer,руавто трейлер, ру авто трейлер, полуприцепы воллкрафт, vollkraft trailer"
       />
       {/* --- HERO SECTION --- */}
       <section className="relative min-h-fit lg:min-h-[90vh] flex items-center pt-24 lg:pt-32 pb-10 lg:pb-0 overflow-hidden bg-[#fcfdfe]">
@@ -154,7 +154,7 @@ export default function HomePage({ products }) {
             <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
             <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">В наличии</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase">
+          <h2 className="text-3xl md:text-5xl font-black text-slate-900 ">
             Каталог <span className="text-blue-600">техники</span>
           </h2>
         </div>
@@ -221,7 +221,7 @@ export default function HomePage({ products }) {
       <section className="py-16 lg:py-24 bg-slate-50/50" id="news-section">
         <div className="max-w-[1500px] mx-auto px-6">
           <div className="mb-12">
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter">
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900  ">
               Новости <span className="text-blue-600">компании</span>
             </h2>
           </div>
@@ -248,7 +248,7 @@ export default function HomePage({ products }) {
                   </Link>
 
                   <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="font-black text-slate-900 uppercase mb-3 line-clamp-2 text-sm md:text-base leading-tight group-hover:text-blue-600 transition-colors">
+                    <h3 className="font-black text-slate-900  mb-3 line-clamp-2 text-sm md:text-base leading-tight group-hover:text-blue-600 transition-colors">
                       {item.title_ru}
                     </h3>
                     <p className="text-slate-500 text-xs md:text-sm leading-relaxed mb-6 line-clamp-3 font-medium">

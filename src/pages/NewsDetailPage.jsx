@@ -7,22 +7,24 @@ import axios from 'axios';
 
 const API_URL = 'https://ruatapi.uzautotrailer.uz/api';
 
-// --- SKELETON COMPONENT (Yuklanayotgan paytda chiqadigan shakl) ---
+// --- SKELETON COMPONENT ---
 const NewsSkeleton = () => (
-    <div className="max-w-[1500px] mx-auto px-6 lg:px-8 animate-pulse pt-24 md:pt-32">
-        <div className="h-4 bg-gray-100 rounded-md w-32 mb-8" /> {/* Breadcrumb */}
-        <div className="h-12 bg-gray-100 rounded-xl w-3/4 mb-8" /> {/* Title */}
-        <div className="flex gap-6 mb-10 pb-6 border-b border-gray-100">
-            <div className="h-4 bg-gray-50 rounded w-24" />
-            <div className="h-4 bg-gray-50 rounded w-20" />
+    <div className="max-w-[1200px] mx-auto px-6 lg:px-8 animate-pulse pt-24 md:pt-32 pb-32">
+        <div className="h-3 bg-slate-100 rounded-md w-32 mb-8" />
+        <div className="h-10 md:h-12 bg-slate-100 rounded-xl w-3/4 mb-8" />
+        <div className="flex gap-6 mb-10 pb-6 border-b border-slate-100">
+            <div className="h-4 bg-slate-50 rounded w-24" />
+            <div className="h-4 bg-slate-50 rounded w-20" />
         </div>
-        <div className="flex flex-col md:flex-row gap-10">
-            <div className="w-full md:w-[30%] aspect-[4/5] bg-gray-100 rounded-[3rem]" /> {/* Image */}
-            <div className="flex-1 space-y-4">
-                <div className="h-4 bg-gray-50 rounded w-full" />
-                <div className="h-4 bg-gray-50 rounded w-full" />
-                <div className="h-4 bg-gray-50 rounded w-5/6" />
-                <div className="h-4 bg-gray-50 rounded w-full" />
+        <div className="block">
+            <div className="w-full lg:w-[45%] lg:float-left mr-8 mb-6 aspect-video bg-slate-100 rounded-3xl" />
+            <div className="space-y-4">
+                <div className="h-4 bg-slate-50 rounded w-full" />
+                <div className="h-4 bg-slate-50 rounded w-full" />
+                <div className="h-4 bg-slate-50 rounded w-5/6" />
+                <div className="h-4 bg-slate-50 rounded w-full" />
+                <div className="h-4 bg-slate-50 rounded w-4/5 mt-8" />
+                <div className="h-4 bg-slate-50 rounded w-full" />
             </div>
         </div>
     </div>
@@ -70,7 +72,6 @@ export default function NewsDetailPage() {
         }
     };
 
-    // Yuklanish paytida Skeleton ko'rsatiladi
     if (isLoading) return <NewsSkeleton />;
 
     if (isError || !post) return (
@@ -86,61 +87,71 @@ export default function NewsDetailPage() {
             animate={{ opacity: 1 }} 
             className="pt-24 md:pt-32 pb-32 bg-white min-h-screen font-inter"
         >
-            <article className="max-w-[1500px] mx-auto px-6 lg:px-8">
+            <article className="max-w-[1200px] mx-auto px-6 lg:px-8">
                 
                 {/* Breadcrumbs */}
-                <div className="mb-8">
-                    <Link to="/" className="inline-flex items-center gap-2 text-slate-400 hover:text-blue-600 transition-all font-bold uppercase text-[10px] tracking-[0.2em] group">
+                <div className="mb-8 md:mb-10">
+                    <Link to="/news" className="inline-flex items-center gap-2 text-slate-400 hover:text-blue-600 transition-all font-bold uppercase text-[10px] tracking-[0.15em] group">
                         <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
                         Назад к списку
                     </Link>
                 </div>
 
                 {/* Sarlavha */}
-                <h1 className="text-3xl md:text-[44px] font-black text-[#1a2e44] leading-[1.1] tracking-tight mb-8">
+                <h1 className="text-3xl md:text-[44px] font-black text-[#1a2e44] leading-[1.15] tracking-tight mb-8">
                     {post.title_ru}
                 </h1>
 
                 {/* Info Bar */}
-                <div className="flex items-center justify-between mb-10 pb-6 border-b border-slate-100">
+                <div className="flex flex-wrap gap-4 items-center justify-between mb-10 pb-6 border-b border-slate-100">
                     <div className="flex items-center gap-6 md:gap-8">
-                        <div className="flex items-center gap-2 text-slate-400 font-bold uppercase text-[10px] tracking-widest">
-                            <Calendar size={14} className="text-blue-600 opacity-70" />
-                            {post.createdAt ? new Date(post.createdAt).toLocaleDateString('ru-RU') : '---'}
+                        <div className="flex items-center gap-2 text-blue-500 font-bold text-[11px] tracking-wider">
+                            <Calendar size={14} />
+                            <span className="text-slate-400 uppercase">
+                                {post.createdAt ? new Date(post.createdAt).toLocaleDateString('ru-RU') : '---'}
+                            </span>
                         </div>
-                        <div className="flex items-center gap-2 text-slate-400 font-bold uppercase text-[10px] tracking-widest">
-                            <Eye size={16} className="text-blue-600 opacity-70" />
-                            {post.views}
+                        <div className="flex items-center gap-2 text-blue-500 font-bold text-[11px] tracking-wider">
+                            <Eye size={16} />
+                            <span className="text-slate-400">{post.views || 0}</span>
                         </div>
                     </div>
 
-                    <button onClick={handleShare} className="flex items-center gap-2 px-5 py-2.5 bg-slate-50 hover:bg-slate-100 rounded-xl transition-all text-slate-500 text-[10px] font-black uppercase tracking-widest border border-slate-100/50">
-                        {copied ? <Check size={14} className="text-green-600" /> : <Share2 size={14} />}
+                    <button onClick={handleShare} className="flex items-center gap-2 px-5 py-2.5 bg-slate-50 hover:bg-slate-100 rounded-xl transition-all text-slate-500 text-[10px] font-black uppercase tracking-widest border border-slate-100">
+                        {copied ? <Check size={14} className="text-emerald-500" /> : <Share2 size={14} />}
                         <span>{copied ? 'Скопировано' : 'Поделиться'}</span>
                     </button>
                 </div>
 
-                <div className="flex flex-col md:flex-row gap-10">
-                    {/* RASM */}
-                    <div className="w-full md:w-[35%] shrink-0">
+                {/* --- ASOSIY KONTENT QISMI --- */}
+                <div className="block flow-root">
+                    {/* RASM - float-left yordamida chapga surildi */}
+                    <div className="w-full lg:w-[45%] lg:float-left mr-0 lg:mr-10 mb-6 lg:mb-4">
                         <motion.div
-                            whileHover={{ scale: 1.02 }}
+                            whileHover={{ scale: 1.01 }}
                             onClick={() => setIsImageOpen(true)}
-                            className="rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden shadow-2xl shadow-slate-200 cursor-zoom-in"
+                            className="rounded-[1.5rem] md:rounded-[2rem] overflow-hidden cursor-zoom-in bg-slate-50"
                         >
-                            <img src={post.image} className="w-full h-full object-cover" alt={post.title_ru} />
+                            <img 
+                                src={post.image} 
+                                className="w-full h-auto object-cover" 
+                                alt={post.title_ru} 
+                            />
                         </motion.div>
                     </div>
 
-                    {/* MATN */}
-                    <div className="flex-1 text-[#475569] text-lg md:text-[20px] leading-[1.8] font-medium">
-                        <div className="whitespace-pre-wrap">{post.content_ru}</div>
+                    {/* MATN - Agar matn rasm uzunligidan oshsa, uning pastidan davom etadi */}
+                    <div className="text-[#334155] text-base md:text-lg leading-[1.8] font-medium whitespace-pre-wrap">
+                        {post.content_ru}
                     </div>
                 </div>
 
+                {/* Matn va rasm tugagach blokni tozalash (xavfsizlik uchun) */}
+                <div className="clear-both"></div>
+
                 {/* Footer button */}
                 <div className="mt-20 pt-12 border-t border-slate-100">
-                    <Link to="/" className="bg-[#1a2e44] text-white px-10 py-5 rounded-2xl font-black text-[10px] tracking-widest uppercase hover:bg-blue-600 transition-all shadow-xl inline-block">
+                    <Link to="/" className="bg-[#1a2e44] text-white px-8 py-4 md:px-10 md:py-5 rounded-2xl font-black text-[10px] md:text-xs tracking-widest uppercase hover:bg-blue-600 transition-all shadow-xl inline-block">
                         Смотреть каталог техники
                     </Link>
                 </div>
@@ -156,7 +167,7 @@ export default function NewsDetailPage() {
                             <button className="absolute top-8 right-8 text-white/70 hover:text-white"><X size={44} /></button>
                             <motion.img 
                                 initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
-                                src={post.image} className="max-w-full max-h-full object-contain rounded-lg shadow-2xl" 
+                                src={post.image} className="max-w-full max-h-full object-contain rounded-xl shadow-2xl" 
                             />
                         </motion.div>
                     )}

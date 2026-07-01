@@ -12,6 +12,7 @@ import AdminPage from './pages/AdminPage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import ContactsPage from './pages/ContactsPage.jsx';
 import NewsDetailPage from './pages/NewsDetailPage.jsx';
+import NewsPage from './pages/NewsPage.jsx';
 import LeadershipPage from './pages/LeadershipPage';
 
 const API_BASE_URL = 'https://ruatapi.uzautotrailer.uz/api';
@@ -85,7 +86,7 @@ function AppContent() {
           <Route path="/" element={<HomePage products={products} />} />
           <Route path="/product/:slug" element={<ProductPage products={products} />} />
           <Route path="/news/:id" element={<NewsDetailPage />} />
-          <Route path="/news" element={<Navigate to="/" replace />} />
+          <Route path="/news" element={<NewsPage />} />
           <Route
             path="/admin"
             element={
